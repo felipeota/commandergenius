@@ -255,6 +255,7 @@ public class MainActivity extends Activity
 			Parent._tv.setText(R.string.init);
 			// Padding is a good idea because if the display device is a TV the edges might be cut off
 			Parent._tv.setPadding((int)(width * 0.1), (int)(height * 0.1), (int)(width * 0.1), 0);
+			Parent._tv.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL);
 			Parent._layout2.addView(Parent._tv);
 		}
 	}

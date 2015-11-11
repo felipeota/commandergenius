@@ -133,6 +133,7 @@ class DataDownloader extends Thread
 		private TextView Status;
 		private MainActivity Parent;
 		private SpannedString oldText = new SpannedString("");
+		private int dotCount = 0;
 
 		public StatusWriter( TextView _Status, MainActivity _Parent )
 		{
@@ -162,7 +163,12 @@ class DataDownloader extends Thread
 			synchronized(DataDownloader.this) {
 				Callback cb = new Callback();
 				oldText = new SpannedString(str);
-				cb.text = new SpannedString(str);
+				dotCount = (dotCount + 1) % 3;
+				String dots = "";
+				for (int i = 0; i <= dotCount; ++i){
+					dots += ".";
+				}
+				cb.text = new SpannedString("Cargando " + dots);
 				cb.Status = Status;
 				if( Parent != null && Status != null )
 					Parent.runOnUiThread(cb);
