@@ -409,7 +409,7 @@ SDL_Surface *ANDROID_SetVideoMode(_THIS, SDL_Surface *current,
 				// Force 4:3 ratio, with black borders at the left/right,
 				// this is needede for Uae4all2, which has 640x256 video mode,
 				// and expects those 256 pixels to stretch 2x height like on a TV interlaced display.
-				SDL_ANDROID_sWindowWidth = SDL_ANDROID_sWindowHeight * 4 / 3;
+				SDL_ANDROID_sWindowWidth = SDL_ANDROID_sWindowHeight * ((float)width / (float)height);
 
 			SDL_ANDROID_TouchscreenCalibrationWidth = SDL_ANDROID_sWindowWidth;
 			SDL_ANDROID_ForceClearScreenRectAmount = 2;
